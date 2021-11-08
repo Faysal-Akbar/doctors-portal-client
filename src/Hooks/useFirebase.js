@@ -105,11 +105,11 @@ const useFirebase = () => {
             setIsLoading(false);
         })
         return ()=> unsubscribed;
-    }, [])
+    }, [auth])
 
     const saveUser = (email, displayName, method) => {
         const user = {email, displayName};
-        fetch('http://localhost:5000/users', {
+        fetch('https://blooming-lake-91301.herokuapp.com/users', {
             method: method,
             headers:{'content-type':'application/json'},
             body: JSON.stringify(user),
@@ -121,7 +121,7 @@ const useFirebase = () => {
 
     // admin true or false
     useEffect(()=> {
-        fetch(`http://localhost:5000/users/${user.email}`)
+        fetch(`https://blooming-lake-91301.herokuapp.com/users/${user.email}`)
         .then(res => res.json())
         .then(data => setAdmin(data.admin))
     }, [user.email])

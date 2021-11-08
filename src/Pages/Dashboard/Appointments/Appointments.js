@@ -14,12 +14,12 @@ const Appointments = ({date}) => {
     const [appointments, setAppointments] = useState([]);
 
     useEffect(() => {
-        fetch(`http://localhost:5000/appointments?email=${user.email}&date=${date}`, {
+        fetch(`https://blooming-lake-91301.herokuapp.com/appointments?email=${user.email}&date=${date}`, {
             headers: {'authorization':`Bearer ${token}`}
         })
         .then(res => res.json())
         .then(data => setAppointments(data))
-    }, [date])
+    }, [user.email, date, token])
     return (
         <div>
             <h2>Appointments {appointments.length}</h2>
