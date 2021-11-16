@@ -8,8 +8,7 @@ const Doctor = ({doctor}) => {
             <Card sx={{ maxWidth: 345 }}>
       <CardMedia
         component="img"
-        width="80%"
-        height="60%"
+        height='300'
         image={`data:image/png;base64,${image}`}
       />
       <CardContent>
